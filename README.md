@@ -1,5 +1,13 @@
 # intro_kedro
 
+## Personal Notes
+
+While running this repo on codespaces make sure to add the following param to the jupyter notebook command:
+
+`--NotebookApp.allow_origin='*'`
+
+Notes added to notebooks folder.
+
 ## Overview
 
 This is your new Kedro project, which was generated using `Kedro 0.17.6`.
