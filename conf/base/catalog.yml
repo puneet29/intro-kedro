@@ -47,7 +47,15 @@ example_iris_data:
   filepath: data/01_raw/iris.csv
 
 # Personal code begins -----------------------------------------------------------
-iris_scatter_plot:
+iris_scatter_plot@matplotlib:
   type: kedro.extras.datasets.matplotlib.MatplotlibWriter
   filepath: data/iris.png
+
+iris_scatter_plot@bytes:
+  type: intro_kedro.io.byte_dataset.BinaryDataSet
+  filepath: data/iris.png
+
+iris_scatter_plot_64bit:
+  type: intro_kedro.io.base64_dataset.Base64DataSet
+  filepath: data/iris_64.txt
 # --------------------------------------------------------------------------------

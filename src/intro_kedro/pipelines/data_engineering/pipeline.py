@@ -9,13 +9,23 @@ from kedro.pipeline import Pipeline, node
 from .nodes import split_data, make_scatter_plot
 
 
+# Edited this for personal learning ---------------------------------------
 def create_pipeline(**kwargs):
     return Pipeline(
         [
             node(
                 make_scatter_plot,
-                inputs=["example_iris_data"],
-                outputs="iris_scatter_plot",
+                inputs="example_iris_data",
+                outputs="iris_scatter_plot@matplotlib",
+                name="save_scatter_matplotlib"
+            ),
+            node(
+                # Because we are not in a way transforming the data, we are
+                # just changing the encoding of the data while saving
+                lambda x : x,
+                inputs="iris_scatter_plot@bytes",
+                outputs="iris_scatter_plot_64bit",
+                name="save_scatter_base64"
             ),
             node(
                 split_data,
@@ -30,3 +40,5 @@ def create_pipeline(**kwargs):
             )
         ]
     )
+
+# -------------------------------------------------------------------------
