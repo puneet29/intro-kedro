@@ -6,12 +6,17 @@ Delete this when you start working on your own Kedro project.
 
 from kedro.pipeline import Pipeline, node
 
-from .nodes import split_data
+from .nodes import split_data, make_scatter_plot
 
 
 def create_pipeline(**kwargs):
     return Pipeline(
         [
+            node(
+                make_scatter_plot,
+                inputs=["example_iris_data"],
+                outputs="iris_scatter_plot",
+            ),
             node(
                 split_data,
                 ["example_iris_data", "params:example_test_data_ratio"],

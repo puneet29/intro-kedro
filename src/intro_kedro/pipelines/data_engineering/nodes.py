@@ -8,6 +8,24 @@ from typing import Any, Dict
 
 import pandas as pd
 
+# Personal code starts --------------------------------------------------------------
+import matplotlib.pyplot as plt
+import matplotlib
+
+
+def make_scatter_plot(df: pd.DataFrame) -> matplotlib.figure.Figure:
+    """Node for creating scatter plot of petal_width v/s petal_length based on the
+    species.
+    Returns the figure object."""
+    fig, ax = plt.subplots()
+    colors = ("red", "green", "blue")
+    for i, species in enumerate(list(df.species.unique())):
+        df[df["species"] == species].plot.scatter(x="petal_width", y="petal_length",
+        label=species, color=colors[i], ax=ax)
+    fig.set_size_inches(12, 12)
+    return fig
+# -----------------------------------------------------------------------------------
+
 
 def split_data(data: pd.DataFrame, example_test_data_ratio: float) -> Dict[str, Any]:
     """Node for splitting the classical Iris data set into training and test
