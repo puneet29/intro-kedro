@@ -58,4 +58,18 @@ iris_scatter_plot@bytes:
 iris_scatter_plot_64bit:
   type: intro_kedro.io.base64_dataset.Base64DataSet
   filepath: data/iris_64.txt
+
+example_train_x:
+  type: pandas.CSVDataSet
+  filepath: data/example_train_x.csv
+
+example_test_y:
+  type: pandas.CSVDataSet
+  filepath: data/example_test_y.csv
+  versioned: true
+
+example_predictions:
+  type: pickle.PickleDataSet
+  filepath: data/example_predictions.pkl
+  versioned: true
 # --------------------------------------------------------------------------------
