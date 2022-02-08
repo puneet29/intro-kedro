@@ -2,3 +2,12 @@
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://kedro.readthedocs.io/en/stable/05_data/01_data_catalog.html
+
+ontime_2019:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/Jan_2019_ontime.csv
+
+ontime_2019_by_day:
+  type: PartitionedDataSet
+  path: data/01_raw/ontime_2019_by_day
+  dataset: pandas.CSVDataSet
